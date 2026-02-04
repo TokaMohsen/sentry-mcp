@@ -9,7 +9,11 @@ export default defineConfig({
   external: [
     // Only mark test-only packages as external
     "@sentry/mcp-server-mocks",
-    // Everything else (including @sentry/mcp-core) will be bundled
+  ],
+  noExternal: [
+    // Force bundling of mcp-core (including all subpath exports)
+    "@sentry/mcp-core",
+    /^@sentry\/mcp-core\/.*/,
   ],
   env: {
     SENTRY_ENVIRONMENT: "stdio",
