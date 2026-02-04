@@ -1,11 +1,14 @@
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  entry: ["src/**/*.ts", "!src/**/*.test.ts"],
+  // Use single entry points to avoid code splitting circular dependency issues
+  // The main CLI entry and the programmatic stdio transport export
+  entry: ["src/index.ts", "src/transports/stdio.ts"],
   format: ["cjs", "esm"],
   dts: true,
   sourcemap: true,
   clean: true,
+  splitting: false, // Disable code splitting to avoid circular dependency issues with runtime helpers
   external: [
     // Only mark test-only packages as external
     "@sentry/mcp-server-mocks",
