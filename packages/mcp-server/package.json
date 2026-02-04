@@ -1,5 +1,5 @@
 {
-  "name": "@sentry/mcp-server",
+  "name": "@tokamohsen/sentry-mcp",
   "mcpName": "io.github.getsentry/sentry-mcp",
   "version": "0.29.0",
   "type": "module",
@@ -13,11 +13,7 @@
   "license": "FSL-1.1-ALv2",
   "author": "Sentry",
   "homepage": "https://github.com/getsentry/sentry-mcp",
-  "keywords": [
-    "sentry",
-    "mcp",
-    "model-context-protocol"
-  ],
+  "keywords": ["sentry", "mcp", "model-context-protocol"],
   "bugs": {
     "url": "https://github.com/getsentry/sentry-mcp/issues"
   },
@@ -28,9 +24,7 @@
   "bin": {
     "sentry-mcp": "./dist/index.js"
   },
-  "files": [
-    "./dist/*"
-  ],
+  "files": ["./dist/*"],
   "exports": {
     ".": {
       "types": "./dist/index.ts",

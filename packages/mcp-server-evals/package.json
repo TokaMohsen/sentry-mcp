@@ -19,7 +19,7 @@
     "@ai-sdk/openai": "catalog:",
     "@modelcontextprotocol/sdk": "catalog:",
     "@sentry/mcp-core": "workspace:*",
-    "@sentry/mcp-server": "workspace:*",
+    "@tokamohsen/sentry-mcp": "workspace:*",
     "@sentry/mcp-server-mocks": "workspace:*",
     "@sentry/mcp-server-tsconfig": "workspace:*",
     "ai": "catalog:",

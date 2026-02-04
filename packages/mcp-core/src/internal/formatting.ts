@@ -24,6 +24,7 @@ import type {
   RequestEntrySchema,
   MessageEntrySchema,
   ThreadsEntrySchema,
+  BreadcrumbsEntrySchema,
   SentryApiService,
   AutofixRunStepRootCauseAnalysisSchema,
 } from "../api-client";
@@ -196,6 +197,7 @@ export function formatEventOutput(
   const exceptionEntry = event.entries.find((e) => e.type === "exception");
   const threadsEntry = event.entries.find((e) => e.type === "threads");
   const requestEntry = event.entries.find((e) => e.type === "request");
+  const breadcrumbsEntry = event.entries.find((e) => e.type === "breadcrumbs");
   const spansEntry = event.entries.find((e) => e.type === "spans");
   const cspEntry = event.entries.find((e) => e.type === "csp");
 
@@ -225,6 +227,14 @@ export function formatEventOutput(
     output += formatRequestInterfaceOutput(
       event,
       requestEntry.data as z.infer<typeof RequestEntrySchema>,
+    );
+  }
+
+  // Breadcrumbs (if present)
+  if (breadcrumbsEntry) {
+    output += formatBreadcrumbsInterfaceOutput(
+      event,
+      breadcrumbsEntry.data as z.infer<typeof BreadcrumbsEntrySchema>,
     );
   }
 
@@ -513,6 +523,58 @@ function formatMessageInterfaceOutput(
   }
   const message = data.formatted || data.message || "";
   return `### Error\n\n${"```"}\n${message}\n${"```"}\n\n`;
+}
+
+function formatBreadcrumbsInterfaceOutput(
+  event: Event,
+  data: z.infer<typeof BreadcrumbsEntrySchema>,
+) {
+  if (!data.values || data.values.length === 0) {
+    return "";
+  }
+
+  const parts: string[] = [];
+  parts.push("### Breadcrumbs");
+  parts.push("");
+
+  // Show the last 20 breadcrumbs to avoid overwhelming the output
+  const breadcrumbs = data.values.slice(-20);
+  if (data.values.length > 20) {
+    parts.push(`(Showing last 20 of ${data.values.length} breadcrumbs)`);
+    parts.push("");
+  }
+
+  breadcrumbs.forEach((crumb) => {
+    const timestamp = crumb.timestamp
+      ? new Date(crumb.timestamp).toISOString().split("T")[1].replace("Z", "")
+      : "";
+    const category = crumb.category || "default";
+    const level = crumb.level || "info";
+    const message = crumb.message || "";
+
+    let line = `**${timestamp}** [${level}] ${category}`;
+    if (message) {
+      line += `: ${message}`;
+    }
+
+    parts.push(line);
+
+    if (crumb.data && Object.keys(crumb.data).length > 0) {
+      // Format data as a compact JSON-like string
+      try {
+        const dataStr = JSON.stringify(crumb.data);
+        if (dataStr !== "{}") {
+          parts.push(`  \`${dataStr}\``);
+        }
+      } catch (e) {
+        // Ignore stringify errors
+      }
+    }
+  });
+
+  parts.push("");
+  parts.push("");
+  return parts.join("\n");
 }
 
 function formatThreadsInterfaceOutput(
