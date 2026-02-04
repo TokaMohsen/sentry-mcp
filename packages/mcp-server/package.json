@@ -1,7 +1,7 @@
 {
   "name": "@tokamohsen/sentry-mcp",
   "mcpName": "io.github.getsentry/sentry-mcp",
-  "version": "0.29.2",
+  "version": "0.29.4",
   "type": "module",
   "packageManager": "pnpm@10.8.1",
   "engines": {
@@ -44,11 +44,11 @@
     "tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "catalog:",
-    "@sentry/node": "catalog:",
-    "@sentry/core": "catalog:",
-    "dotenv": "catalog:",
-    "zod": "catalog:"
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "@sentry/node": "10.35.0",
+    "@sentry/core": "10.35.0",
+    "dotenv": "^16.6.1",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@sentry/mcp-core": "workspace:*",
