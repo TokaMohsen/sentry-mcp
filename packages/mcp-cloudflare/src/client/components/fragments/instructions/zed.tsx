@@ -50,7 +50,7 @@ export function ZedInstructions({ transport }: ZedInstructionsProps) {
   } as const;
   const coreConfig = {
     command: "npx",
-    args: ["@sentry/mcp-server@latest"],
+    args: ["@tokamohsen/sentry-mcp@latest"],
     env: defaultEnv,
   };
 

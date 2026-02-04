@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { startStdio } from "@sentry/mcp-server/transports/stdio";
+import { startStdio } from "@tokamohsen/sentry-mcp/transports/stdio";
 import { mswServer } from "@sentry/mcp-server-mocks";
 import { SKILLS, type Skill } from "@sentry/mcp-core/skills";
 

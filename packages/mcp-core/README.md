@@ -29,16 +29,16 @@ You can limit which skills are granted using the `--skills` flag:
 
 ```shell
 # Default: ALL skills (inspect, docs, seer, triage, project-management)
-npx @sentry/mcp-server@latest --access-token=sentry-user-token
+npx @tokamohsen/sentry-mcp@latest --access-token=sentry-user-token
 
 # Limit to specific skills only
-npx @sentry/mcp-server@latest --access-token=TOKEN --skills=inspect,docs
+npx @tokamohsen/sentry-mcp@latest --access-token=TOKEN --skills=inspect,docs
 
 # Self-hosted Sentry
-npx @sentry/mcp-server@latest --access-token=TOKEN --host=sentry.example.com
+npx @tokamohsen/sentry-mcp@latest --access-token=TOKEN --host=sentry.example.com
 
 # Override OpenAI endpoint for AI-powered tools (stdio only)
-npx @sentry/mcp-server@latest --access-token=TOKEN --openai-base-url=https://proxy.example.com/v1
+npx @tokamohsen/sentry-mcp@latest --access-token=TOKEN --openai-base-url=https://proxy.example.com/v1
 ```
 
 ### Constraint-Based Tool Exclusion
@@ -97,10 +97,10 @@ If you're currently using scopes:
 
 ```shell
 # OLD (deprecated)
-npx @sentry/mcp-server --access-token=TOKEN --scopes=org:read,event:write
+npx @tokamohsen/sentry-mcp --access-token=TOKEN --scopes=org:read,event:write
 
 # NEW (recommended)
-npx @sentry/mcp-server --access-token=TOKEN --skills=inspect,triage
+npx @tokamohsen/sentry-mcp --access-token=TOKEN --skills=inspect,triage
 ```
 
 The host configuration accepts two distinct formats:
@@ -114,8 +114,8 @@ By default we also enable Sentry reporting (traces, errors) upstream to our clou
 
 ```shell
 # disable sentry reporting
-npx @sentry/mcp-server@latest --sentry-dsn=
+npx @tokamohsen/sentry-mcp@latest --sentry-dsn=
 
 # use custom sentry instance
-npx @sentry/mcp-server@latest --sentry-dsn=https://publicKey@mysentry.example.com/...
+npx @tokamohsen/sentry-mcp@latest --sentry-dsn=https://publicKey@mysentry.example.com/...
 ```

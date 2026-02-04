@@ -9,8 +9,8 @@
  *
  * @example CLI Usage
  * ```bash
- * npx @sentry/mcp-server --access-token=TOKEN --host=sentry.io
- * npx @sentry/mcp-server --access-token=TOKEN --url=https://sentry.example.com
+ * npx @tokamohsen/sentry-mcp --access-token=TOKEN --host=sentry.io
+ * npx @tokamohsen/sentry-mcp --access-token=TOKEN --url=https://sentry.example.com
  * ```
  */
 
@@ -29,7 +29,7 @@ import {
   getResolvedProviderType,
 } from "@sentry/mcp-core/internal/agents/provider-factory";
 
-const packageName = "@sentry/mcp-server";
+const packageName = "@tokamohsen/sentry-mcp";
 const allSkills = Object.keys(SKILLS) as ReadonlyArray<
   (typeof SKILLS)[keyof typeof SKILLS]["id"]
 >;
