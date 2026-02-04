@@ -170,7 +170,7 @@ export default function StdioSetup() {
         </div>
         <p className="mt-4 text-sm text-slate-300">
           Need something else? Run{" "}
-          <code>npx @sentry/mcp-server@latest --help</code> to view the full
+          <code>npx @tokamohsen/sentry-mcp@latest --help</code> to view the full
           flag list.
         </p>
       </Prose>

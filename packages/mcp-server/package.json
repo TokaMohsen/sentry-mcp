@@ -1,7 +1,7 @@
 {
   "name": "@tokamohsen/sentry-mcp",
   "mcpName": "io.github.getsentry/sentry-mcp",
-  "version": "0.29.1",
+  "version": "0.29.2",
   "type": "module",
   "packageManager": "pnpm@10.8.1",
   "engines": {

@@ -60,7 +60,7 @@ import { hasAgentProvider } from "./internal/agents/provider-factory";
  * @example Usage with stdio transport
  * ```typescript
  * import { buildServer } from "@sentry/mcp-core/server";
- * import { startStdio } from "@sentry/mcp-server/transports/stdio";
+ * import { startStdio } from "@tokamohsen/sentry-mcp/transports/stdio";
  *
  * const context = {
  *   accessToken: process.env.SENTRY_TOKEN,

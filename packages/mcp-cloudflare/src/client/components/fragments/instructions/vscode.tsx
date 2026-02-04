@@ -77,7 +77,7 @@ export function VSCodeInstructions({ transport }: VSCodeInstructionsProps) {
   } as const;
   const coreConfig = {
     command: "npx",
-    args: ["@sentry/mcp-server@latest"],
+    args: ["@tokamohsen/sentry-mcp@latest"],
     env: defaultEnv,
   };
 

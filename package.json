@@ -1,6 +1,6 @@
 {
   "name": "tokamohsen/sentry-mcp",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.15.1",
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "docs:check": "node scripts/check-doc-links.mjs",
-    "dev": "dotenv -e .env -e .env.local -- turbo dev --filter=!@sentry/mcp-server",
+    "dev": "dotenv -e .env -e .env.local -- turbo dev --filter=!@tokamohsen/sentry-mcp",
     "dev:stdio": "dotenv -e .env -e .env.local -- turbo dev --filter=!@sentry/mcp-cloudflare",
     "build": "turbo build after-build",
     "deploy": "turbo deploy",
