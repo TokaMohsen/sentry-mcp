@@ -1,5 +1,5 @@
 {
-  "name": "@sentry/mcp-server",
+  "name": "@tokamohsen/sentry-mcp",
   "mcpName": "io.github.getsentry/sentry-mcp",
   "version": "0.29.0",
   "type": "module",
@@ -57,7 +57,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@sentry/mcp-core": "workspace:*",
+    "@tokamohsen/mcp-core": "workspace:*",
     "@sentry/mcp-server-mocks": "workspace:*",
     "@sentry/mcp-server-tsconfig": "workspace:*",
     "@types/node": "catalog:",

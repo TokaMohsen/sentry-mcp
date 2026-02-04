@@ -1,5 +1,5 @@
 {
-  "name": "@sentry/mcp-core",
+  "name": "@tokamohsen/mcp-core",
   "version": "0.29.0",
   "type": "module",
   "private": true,

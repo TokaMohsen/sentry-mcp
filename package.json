@@ -1,5 +1,5 @@
 {
-  "name": "sentry-mcp",
+  "name": "tokamohsen/sentry-mcp",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
   },
   "license": "FSL-1.1-ALv2",
   "author": "Sentry",
-  "description": "Sentry MCP Server",
+  "description": "Fork of sentry-mcp adding fetch BreadCrumbs to get-event-details tool output",
   "homepage": "https://github.com/getsentry/sentry-mcp",
   "keywords": ["sentry"],
   "bugs": {

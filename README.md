@@ -1,5 +1,7 @@
 # sentry-mcp
 
+> **Note:** This is a fork of the original repository. It includes additional Breadcrumbs data as output from tool `get-issue-details`.
+
 Sentry's MCP service is primarily designed for human-in-the-loop coding agents. Our tool selection and priorities are focused on developer workflows and debugging use cases, rather than providing a general-purpose MCP server for all Sentry functionality.
 
 This remote MCP server acts as middleware to the upstream Sentry API, optimized for coding assistants like Cursor, Claude Code, and similar development tools. It's based on [Cloudflare's work towards remote MCPs](https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/).
@@ -32,7 +34,7 @@ event:write
 Launch the transport:
 
 ```shell
-npx @sentry/mcp-server@latest --access-token=sentry-user-token
+npx @tokamohsen/sentry-mcp@latest --access-token=sentry-user-token
 ```
 
 Need to connect to a self-hosted deployment? Add <code>--host</code> (hostname
@@ -61,7 +63,7 @@ SENTRY_HOST=                 # For self-hosted deployments
   "mcpServers": {
     "sentry": {
       "command": "npx",
-      "args": ["@sentry/mcp-server"],
+      "args": ["@tokamohsen/sentry-mcp"],
       "env": {
         "SENTRY_ACCESS_TOKEN": "your-token",
         "EMBEDDED_AGENT_PROVIDER": "openai",
